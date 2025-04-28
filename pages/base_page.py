@@ -11,7 +11,7 @@ class BasePage:
         self.driver = driver
 
     def find_element_with_wait(self, locator):
-        WebDriverWait(self.driver, timeout=15).until(
+        WebDriverWait(self.driver, timeout=20).until(
             expected_conditions.visibility_of_element_located(locator)
             )
         return self.driver.find_element(*locator)
@@ -20,7 +20,6 @@ class BasePage:
         WebDriverWait(self.driver, timeout=5).until(
             expected_conditions.element_to_be_clickable(locator)
             )
-        print(locator)
         self.find_element_with_wait(locator).click()
 
     def add_text_to_element(self, locator, text):
@@ -37,8 +36,12 @@ class BasePage:
         element = self.find_element_with_wait(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
-    def wait_for_element_visible(self, locator, timeout=15):
-        """Ожидает видимости элемента."""
-        return WebDriverWait(self.driver, timeout).until(
+    def wait_for_page_load(self, locator, timeout=10):
+        WebDriverWait(self.driver, timeout=timeout).until(
             expected_conditions.visibility_of_element_located(locator)
-        )
+            )
+        
+    def fill_field(self, locator, value):
+        field = self.find_element_with_wait(locator)
+        field.clear()
+        field.send_keys(value)
