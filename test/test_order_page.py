@@ -1,7 +1,7 @@
 import pytest
 from data import button_texts, personal_data
 from pages.order_page import OrderPage
-
+from time import sleep
 
 class TestOrderPage:
     """Testing order page."""
@@ -19,6 +19,5 @@ class TestOrderPage:
     def test_fill_fields_1(self, driver):
         """Testing filling fields and continue button."""
         order_page = OrderPage(driver)
-        
         assert order_page.fill_fields_1(personal_data[0])
 
