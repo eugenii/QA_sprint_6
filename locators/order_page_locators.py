@@ -13,7 +13,7 @@ class OrderPageLocators:
     NAME_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, '* Имя')]"
     SURNAME_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, '* Фамилия')]"
     ADRESS_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, '* Адрес')]"
-    METRO_FIELD_LOCATOR = By.XPATH, "//div[@class='select-search__value']/input[contains(@placeholder, '* Станция метро') and @class='select-search__input']"  # By.XPATH, "//*[text()='{}']"  # 
+    METRO_FIELD_LOCATOR = By.XPATH, "//div[@class='select-search__value']/input[contains(@placeholder, '* Станция метро')]" # and @class='select-search__input']" 
     METRO_SCROL_LOCATOR = By.XPATH, "//div[contains(@class, 'Order_Text') and text()='Сокольники']"   
     PHONE_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, '* Телефон')]"
     DATE_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, '* Когда привезти')]"
