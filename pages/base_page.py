@@ -14,6 +14,7 @@ class BasePage:
         WebDriverWait(self.driver, timeout=20).until(
             expected_conditions.visibility_of_element_located(locator)
             )
+        
         return self.driver.find_element(*locator)
     
     def click_to_element(self, locator):
@@ -26,10 +27,12 @@ class BasePage:
         self.find_element_with_wait(locator).send_keys(text)
 
     def get_text_from_element(self, locator):
+        
         return self.find_element_with_wait(locator).text
     
     def format_locators(self, locator_1, num):
         method, locator = locator_1
+        
         return method, locator.format(num)
     
     def scroll_to_element(self, locator):

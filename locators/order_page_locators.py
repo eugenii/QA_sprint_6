@@ -14,11 +14,12 @@ class OrderPageLocators:
     SURNAME_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, '* Фамилия')]"
     ADRESS_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, '* Адрес')]"
     METRO_FIELD_LOCATOR = By.XPATH, "//div[@class='select-search__value']/input[contains(@placeholder, '* Станция метро')]" # and @class='select-search__input']" 
-    METRO_SCROL_LOCATOR = By.XPATH, "//div[contains(@class, 'Order_Text') and text()='Сокольники']"   
+    METRO_SCROL_LOCATOR = By.XPATH, "//div[contains(@class, 'Order_Text') and text()='{}']"   
     PHONE_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, '* Телефон')]"
     DATE_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, '* Когда привезти')]"
+
     DUR_FIELD_LOCATOR = By.XPATH, "//div[contains(@class, 'Dropdown-placeholder')]"
-    DUR_FIELD_DAYS_LOCATOR = By.XPATH, "//div[@class='Dropdown-option' and text()='сутки']"
+    DUR_FIELD_DAYS_LOCATOR = By.XPATH, "//div[@class='Dropdown-option' and text()='{}']"
     SCOOTER_BLACK_COLOR_LOCATOR = By.XPATH, "//input[@id='black']"
     SCOOTER_GREY_COLOR_LOCATOR = By.XPATH, "//input[@id='grey']"
     COMMENT_FIELD_LOCATOR = By.XPATH, "//input[contains(@placeholder, 'Комментарий')]"
@@ -36,6 +37,3 @@ class OrderPageLocators:
     # Локатор для кнопки "Закрыть" в баннере
     CLOSE_COOKIE_BANNER_LOCATOR = (By.XPATH, "//button[contains(text(), 'да все привыкли')]")
 
-
-# Локатор для элемента выпадающего списка. Море крови, км нервов..
-# //div[contains(@class, 'Order_Text') and normalize-space(text())='Чистые пруды']
