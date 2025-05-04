@@ -4,17 +4,15 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage 
 from locators.order_page_locators import OrderPageLocators
+from data import URLS
 
 class OrderPage(BasePage):
     """Страница с формой заказа."""
 
-    target = "https://qa-scooter.praktikum-services.ru/order"
+    target = URLS.ORDER_PAGE
     
     @allure.step("Кликнуть на кнопку заказа.")
-    def click_to_order_button(
-            self,
-            locator,
-            scroll=False):
+    def click_to_order_button(self, locator, scroll=False):
         if scroll:
             self.scroll_to_element(locator)
         self.click_to_element(locator)
@@ -22,15 +20,18 @@ class OrderPage(BasePage):
     
     @allure.step("Кликнуть на кнопку заказа сверху.")
     def click_to_order_top(self):
-        return self.click_to_order_button(
+        return self.click_with_scroll(
             locator=OrderPageLocators.BUTTON_TOP_LOCATOR,
+            target=self.target,
             scroll=False
         )
     
     @allure.step("Кликнуть на кнопку заказа снизу.")
     def click_to_order_bottom(self):
-        return self.click_to_order_button(
+
+        return self.click_with_scroll(
             locator=OrderPageLocators.BUTTON_BOTTOM_LOCATOR,
+            target=self.target,
             scroll=True
         )
     
@@ -61,16 +62,11 @@ class OrderPage(BasePage):
             locator=OrderPageLocators.PHONE_FIELD_LOCATOR,
             value=params["phone"]
         )
+
         # Ожидаем появления баннера и закрываем его
-        WebDriverWait(self.driver, timeout=10).until(
-            EC.element_to_be_clickable(OrderPageLocators.CLOSE_COOKIE_BANNER_LOCATOR)
-        ).click()
-        print("Cookie banner closed.")
+        self.click_to_element(OrderPageLocators.CLOSE_COOKIE_BANNER_LOCATOR)
+
         self.click_to_element(OrderPageLocators.FORWARD_BUTTON_LOCATOR)
-        WebDriverWait(self.driver, timeout=10).until(
-            EC.visibility_of_element_located(OrderPageLocators.ORDER_HEADER_2_LOCATOR)
-        )
-        print("Order header 2 visible.")
 
         self.click_to_element(OrderPageLocators.DATE_FIELD_LOCATOR)
 
@@ -82,11 +78,10 @@ class OrderPage(BasePage):
 
         self.click_to_element(OrderPageLocators.DUR_FIELD_LOCATOR)
 
-        duration_locator = self.format_locators(OrderPageLocators.DUR_FIELD_DAYS_LOCATOR, params["duration"])  # (By.XPATH, f"//div[@class='Dropdown-option' and text()='{params['duration']}']")
+        duration_locator = self.format_locators(OrderPageLocators.DUR_FIELD_DAYS_LOCATOR, params["duration"])
         duration = self.find_element_with_wait(duration_locator)
 
         duration.click()
-        print("Duration selected.")
         scooter_color = self.find_element_with_wait(OrderPageLocators.SCOOTER_BLACK_COLOR_LOCATOR)
         scooter_color.click()
 

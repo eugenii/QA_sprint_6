@@ -4,11 +4,11 @@ from data import button_texts
 from pages.main_page import MainPage
 
 
-@allure.title('Проверка текстов ответов на Основные вопросы')
-@allure.description('На главной странице прокручиваем вниз и проверяем вопросы по очереди')
 class TestMainPage:
     """Testin questions on main page."""
     
+    @allure.title('Проверка текстов ответов на Основные вопросы')
+    @allure.description('На главной странице прокручиваем вниз и проверяем вопросы по очереди')
     @pytest.mark.parametrize(
         "num", 
         [

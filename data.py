@@ -1,4 +1,12 @@
 
+class URLS:
+    MAIN_PAGE = "https://qa-scooter.praktikum-services.ru/"
+
+    ORDER_PAGE = "https://qa-scooter.praktikum-services.ru/order"
+
+    DZEN_PAGE = "https://dzen.ru/?yredirect"
+
+    
 button_texts = [
     ["Сколько это стоит? И как оплатить?", "Сутки — 400 рублей. Оплата курьеру — наличными или картой."    ],
     ["Хочу сразу несколько самокатов! Так можно?", "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим."],
