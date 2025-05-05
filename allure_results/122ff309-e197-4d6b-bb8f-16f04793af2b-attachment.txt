@@ -1,0 +1,3 @@
+Cookie banner closed.
+Order header 2 visible.
+Duration selected.
