@@ -69,13 +69,3 @@ class BasePage:
         WebDriverWait(self.driver, 10).until(expected_conditions.url_contains(url))
 
         return url in self.driver.current_url
-
-    # def close_banner(self, locator):
-    #             # Ожидаем появления баннера и закрываем его
-    #     WebDriverWait(self.driver, timeout=10).until(
-    #         EC.element_to_be_clickable(OrderPageLocators.CLOSE_COOKIE_BANNER_LOCATOR)
-    #     ).click()
-    #     self.click_to_element(OrderPageLocators.FORWARD_BUTTON_LOCATOR)
-    #     WebDriverWait(self.driver, timeout=10).until(
-    #         EC.visibility_of_element_located(OrderPageLocators.ORDER_HEADER_2_LOCATOR)
-    #     )

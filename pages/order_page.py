@@ -13,10 +13,11 @@ class OrderPage(BasePage):
     
     @allure.step("Кликнуть на кнопку заказа.")
     def click_to_order_button(self, locator, scroll=False):
-        if scroll:
-            self.scroll_to_element(locator)
-        self.click_to_element(locator)
-        return self.target in self.driver.current_url 
+        return self.click_with_scroll(
+            locator=locator,
+            target=self.target,
+            scroll=scroll
+        )
     
     @allure.step("Кликнуть на кнопку заказа сверху.")
     def click_to_order_top(self):
